@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="cnr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11110f">
+    <meta name="description" content="Pregledajte i filtrirajte ponudu Nova Motors-a.">
+    <title>Ponuda automobila — Nova Motors</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="inventory-body">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Početna stranica Nova Motors-a">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span>NOVA <span class="brand-light">MOTORS</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Glavna navigacija">
+        <a href="index.html">Početna</a>
+        <a href="inventory.html" aria-current="page">Ponuda automobila</a>
+        <a href="contact.html">Kontakt</a>
+      </nav>
+      <button class="saved-nav" id="saved-toggle" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+        <span>Sačuvano</span><span class="saved-count" id="saved-count">0</span>
+      </button>
+    </header>
+    <main class="inventory-page section-wrap" id="inventory">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow eyebrow-dark"><span></span> Ponuda sa karakterom</p>
+          <h1 class="page-title">Naša <em>ponuda</em></h1>
+        </div>
+        <p class="section-intro">Svaki automobil ima svoju priču.<br class="desktop-break"> Pronađi onaj pravi za sebe.</p>
+      </div>
+      <form class="filters" id="filters">
+        <label class="search-field">
+          <span class="field-label">MARKA ILI MODEL</span>
+          <span class="search-input-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+            <input id="search" type="search" placeholder="npr. Golf, BMW" autocomplete="off">
+          </span>
+        </label>
+        <label>
+          <span class="field-label">TIP KAROSERIJE</span>
+          <select id="body-style">
+            <option value="">Sve karoserije</option>
+            <option value="Hečbek">Hečbek</option>
+            <option value="Kupe">Kupe</option>
+            <option value="Kabriolet">Kabriolet</option>
+            <option value="SUV">SUV</option>
+            <option value="Limuzina">Limuzina</option>
+            <option value="Karavan">Karavan</option>
+          </select>
+        </label>
+        <label>
+          <span class="field-label">NAJVIŠA CIJENA</span>
+          <select id="max-price">
+            <option value="">Bez ograničenja</option>
+            <option value="15000">Do 15.000 €</option>
+            <option value="30000">Do 30.000 €</option>
+            <option value="50000">Do 50.000 €</option>
+            <option value="75000">Do 75.000 €</option>
+            <option value="100000">Do 100.000 €</option>
+          </select>
+        </label>
+        <button class="filter-reset" type="reset" aria-label="Ukloni sve filtere" title="Ukloni filtere">↺</button>
+      </form>
+      <div class="inventory-toolbar">
+        <p id="results-count" aria-live="polite"></p>
+        <label class="sort-control"><span>POREĐAJ</span>
+          <select id="sort-order" aria-label="Poređaj automobile">
+            <option value="featured">Preporučeno</option>
+            <option value="price-low">Cijena: od najniže</option>
+            <option value="price-high">Cijena: od najviše</option>
+            <option value="year-new">Prvo najnoviji</option>
+          </select>
+        </label>
+      </div>
+      <div class="car-grid" id="car-grid"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <span class="empty-mark">N</span>
+        <h2>Nema pronađenih automobila</h2>
+        <p>Pokušajte da promijenite filtere i pogledate ostatak ponude.</p>
+        <button class="text-button" id="empty-reset" type="button">Ukloni filtere <span aria-hidden="true">↗</span></button>
+      </div>
+      <p class="demo-note">Podaci za automobile dostavljeni su od vlasnika.</p>
+    </main>
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">N</span><span>NOVA <span class="brand-light">MOTORS</span></span></a>
+      <a class="footer-contact-link" href="contact.html">Kontaktiraj Nova Motors <span aria-hidden="true">↗</span></a>
+      <span class="copyright">© <span data-year></span> Nova Motors</span>
+    </footer>
+  </body>
+</html>
